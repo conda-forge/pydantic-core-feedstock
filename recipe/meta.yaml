@@ -1,5 +1,5 @@
 {% set name = "pydantic-core" %}
-{% set version = "0.16.1" %}
+{% set version = "0.17.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pydantic_core-{{ version }}.tar.gz
-  sha256: 5e95673ab2ab0ea2e092e1902137674b288f396645b2232f10aeb813aa2bab01
-  patches:
-    # https://github.com/pydantic/pydantic-core/pull/469
-    - 0001-build-Use-PYTHON-to-determine-the-correct-python-exe.patch
+  sha256: d7f4289d0a514b42e364c5ceaab7d16d08d78128a8b7372486931275512deeef
 
 build:
   skip: true  # [py<37]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
