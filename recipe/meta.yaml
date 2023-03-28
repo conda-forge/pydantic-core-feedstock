@@ -8,9 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pydantic_core-{{ version }}.tar.gz
   sha256: d7f4289d0a514b42e364c5ceaab7d16d08d78128a8b7372486931275512deeef
-  patches:
-    # https://github.com/pydantic/pydantic-core/pull/469
-    - 0001-build-Use-PYTHON-to-determine-the-correct-python-exe.patch
 
 build:
   skip: true  # [py<37]
