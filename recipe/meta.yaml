@@ -1,5 +1,5 @@
 {% set name = "pydantic-core" %}
-{% set version = "0.31.0" %}
+{% set version = "0.32.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pydantic_core-{{ version }}.tar.gz
-  sha256: da524180996635cfaf26ce01d1faa371ac6d31cf3f5a40ef09a43d599f974015
+  sha256: 655247c1a18eea39a83acfbc2a45254d67db4e98968b4b91647c7f31ce027758
 
 build:
   skip: true  # [py<37]
