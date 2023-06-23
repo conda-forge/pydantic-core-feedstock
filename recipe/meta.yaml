@@ -10,9 +10,11 @@ source:
   sha256: ca0238620d81f88b080883c2968e42e35733708d3421e90dbae9b97762349c07
 
 build:
-  skip: true  # [py<37]
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  script:
+    # PyPy has weird sysconfigdata name
+    - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
+    - {{ PYTHON }} -m pip install . -vv
+  number: 1
 
 requirements:
   build:
