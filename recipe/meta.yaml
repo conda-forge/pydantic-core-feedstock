@@ -16,7 +16,7 @@ build:
     - {{ PYTHON }} -m pip install . -vv
   number: 0
   skip:
-    # 
+    # https://github.com/pydantic/pydantic-core/issues/724
     - true  # [python_impl == "pypy" and python < "3.9"]
 
 requirements:
