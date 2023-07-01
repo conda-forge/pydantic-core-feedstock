@@ -30,7 +30,8 @@ requirements:
     - typing_extensions
   run:
     - python
-    - typing-extensions >=4.6.0
+    - typing-extensions >=4.6.0  # [python_impl != "pypy"]
+    - typing-extensions >=4.6.0,<4.7.0  # [python_impl == "pypy"]
 
 test:
   imports:
