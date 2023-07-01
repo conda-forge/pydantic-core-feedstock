@@ -30,7 +30,7 @@ requirements:
     - typing_extensions
   run:
     - python
-    - typing-extensions
+    - typing-extensions >=4.6.0
 
 test:
   imports:
