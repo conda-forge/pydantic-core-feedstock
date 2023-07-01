@@ -15,9 +15,6 @@ build:
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
     - {{ PYTHON }} -m pip install . -vv
   number: 0
-  skip:
-    # https://github.com/pydantic/pydantic-core/issues/724
-    - true  # [python_impl == "pypy" and python < "3.9"]
 
 requirements:
   build:
@@ -30,11 +27,13 @@ requirements:
     - pip
     - python
     - maturin >=1,<2
-    - typing-extensions
+    - typing-extensions >=4.6.0  # [python_impl != "pypy"]
+    - typing-extensions >=4.6.0,<4.7.0  # [python_impl == "pypy"]
   run:
     - python
     - typing-extensions >=4.6.0  # [python_impl != "pypy"]
     - typing-extensions >=4.6.0,<4.7.0  # [python_impl == "pypy"]
+    
 
 test:
   imports:
