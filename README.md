@@ -397,6 +397,7 @@ Feedstock Maintainers
 
 * [@adriangb](https://github.com/adriangb/)
 * [@dmontagu](https://github.com/dmontagu/)
+* [@pavelzw](https://github.com/pavelzw/)
 * [@samuelcolvin](https://github.com/samuelcolvin/)
 * [@xhochy](https://github.com/xhochy/)
 
