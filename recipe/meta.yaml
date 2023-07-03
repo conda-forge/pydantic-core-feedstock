@@ -1,5 +1,5 @@
 {% set name = "pydantic-core" %}
-{% set version = "2.0.1" %}
+{% set version = "2.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pydantic_core-{{ version }}.tar.gz
-  sha256: f9fffcb5507bff84a1312d1616406cad157806f105d78bd184d1e6b3b00e6417
+  sha256: 996ffb7ae3c8cb7506a58dae52bbf13a7bbbfce6c3110a2b44c20d2587e57b9b
 
 build:
   script:
@@ -35,7 +35,6 @@ requirements:
     - python
     - typing-extensions >=4.6.0  # [python_impl != "pypy"]
     - typing-extensions >=4.6.0,<4.7.0  # [python_impl == "pypy"]
-    
 
 test:
   imports:
