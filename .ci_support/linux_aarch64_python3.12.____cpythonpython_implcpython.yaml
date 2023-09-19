@@ -9,7 +9,7 @@ cdt_arch:
 cdt_name:
 - cos7
 channel_sources:
-- conda-forge
+- conda-forge/label/python_rc,conda-forge
 channel_targets:
 - conda-forge main
 docker_image:
@@ -29,3 +29,4 @@ target_platform:
 zip_keys:
 - - python
   - python_impl
+  - channel_sources
