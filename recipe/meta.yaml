@@ -1,5 +1,5 @@
 {% set name = "pydantic-core" %}
-{% set version = "2.9.0" %}
+{% set version = "2.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pydantic_core-{{ version }}.tar.gz
-  sha256: 3afee35fceaeea03e91714adbe5ba0ac1b1b949702b1af283bad175f55665c66
+  sha256: 8fe66506700efdfc699c613ccc4974ac7d8fceed8c74983e55ec380504db2e05
 
 build:
   script:
     # PyPy has weird sysconfigdata name
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
