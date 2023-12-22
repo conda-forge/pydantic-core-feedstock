@@ -41,6 +41,7 @@ test:
     - pydantic_core
   commands:
     - pip check
+    - python -c 'import pydantic_core; print(dir(pydantic_core))'
     - python -c 'from pydantic_core import PydanticUndefinedType'
   requires:
     - pip
