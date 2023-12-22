@@ -13,7 +13,7 @@ build:
   script:
     # PyPy has weird sysconfigdata name
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
-    - {{ PYTHON }} -m pip install . --no-build-isolation -vvv
+    - RUST_LOG=debug {{ PYTHON }} -m pip install . --no-build-isolation -vvv
     - {{ PYTHON }} -m zipfile --list target/wheels/*.whl
     - ls -l $PREFIX/lib/python$PY_VER/site-packages
     - ls -l $PREFIX/lib/python$PY_VER/site-packages/pydantic_core
