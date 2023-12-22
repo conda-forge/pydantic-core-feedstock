@@ -13,7 +13,7 @@ build:
   script:
     # PyPy has weird sysconfigdata name
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . -vvv
     - {{ PYTHON }} -c 'import pydantic_core; print("\n\n===PYDANTIC CORE===\n\n", dir(pydantic_core))'
   number: 0
 
