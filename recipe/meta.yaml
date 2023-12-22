@@ -14,7 +14,7 @@ build:
     # PyPy has weird sysconfigdata name
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
     - {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -41,6 +41,7 @@ test:
     - pydantic_core
   commands:
     - pip check
+    - python -c 'from pydantic_core import PydanticUndefinedType'
   requires:
     - pip
 
