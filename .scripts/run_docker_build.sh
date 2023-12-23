@@ -79,10 +79,8 @@ export IS_PR_BUILD="${IS_PR_BUILD:-False}"
 docker pull "${DOCKER_IMAGE}"
 docker run ${DOCKER_RUN_ARGS} \
            -v "${RECIPE_ROOT}":/home/conda/recipe_root:rw,z,delegated \
-           -v "${FEEDSTOCK_ROOT}"/.ci_support:/home/conda/feedstock_root/.ci_support:rw,z,delegated \
-           -v "${FEEDSTOCK_ROOT}"/.scripts:/home/conda/feedstock_root/.scripts:rw,z,delegated \
-           -v "${FEEDSTOCK_ROOT}"/conda-forge.yml:/home/conda/feedstock_root/conda-forge.yml:rw,z,delegated \
-           -v "${FEEDSTOCK_ROOT}"/build_artifacts:/home/conda/feedstock_root/build_artifacts:rw,z,delegated \
+           -v "${FEEDSTOCK_ROOT}":/home/conda/feedstock_root:rw,z,delegated \
+           -v /home/conda/feedstock_root/.git:rw,z,delegated \
            -e CONFIG \
            -e HOST_USER_ID \
            -e UPLOAD_PACKAGES \
