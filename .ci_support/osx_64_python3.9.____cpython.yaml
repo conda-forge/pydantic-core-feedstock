@@ -15,13 +15,8 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
-python_impl:
-- cpython
+- 3.9.* *_cpython
 rust_compiler:
 - rust
 target_platform:
 - osx-64
-zip_keys:
-- - python
-  - python_impl
