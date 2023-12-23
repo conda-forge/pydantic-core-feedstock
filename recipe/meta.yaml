@@ -16,7 +16,7 @@ build:
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
     # maturin looks at the gitignore file, but it is quite aggressive for conda-forge
     - mv ${FEEDSTOCK_ROOT}/.gitignore ${FEEDSTOCK_ROOT}/gitignore     # [linux]
-    - {{ PYTHON }} -m pip install . -vvv --no-build-isolation
+    - {{ PYTHON }} -m pip install . -vv
     - mv ${FEEDSTOCK_ROOT}/gitignore ${FEEDSTOCK_ROOT}/.gitignore     # [linux]
   number: 1
 
