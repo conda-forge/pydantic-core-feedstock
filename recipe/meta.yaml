@@ -9,26 +9,21 @@ source:
   sha256: 0ba503850d8b8dcc18391f10de896ae51d37fe5fe43dbfb6a35c5c5cad271a06
 
 build:
-  script_env:   # [linux]
-    - FEEDSTOCK_ROOT   # [linux]
   script:
     # PyPy has weird sysconfigdata name
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
-    # maturin looks at the gitignore file, but it is quite aggressive for conda-forge
-    - mv ${FEEDSTOCK_ROOT}/.gitignore ${FEEDSTOCK_ROOT}/gitignore     # [linux]
     - {{ PYTHON }} -m pip install . -vv
-    - mv ${FEEDSTOCK_ROOT}/gitignore ${FEEDSTOCK_ROOT}/.gitignore     # [linux]
-  number: 0
+    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+  number: 1
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - maturin >=1,<2                         # [build_platform != target_platform]
     - {{ compiler("c") }}
     - {{ compiler("rust") }}
+    - cargo-bundle-licenses
   host:
     - pip
     - python
