@@ -1,4 +1,4 @@
-{% set version = "2.18.1" %}
+{% set version = "2.18.2" %}
 
 package:
   name: pydantic-core
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pydantic-core/pydantic_core-{{ version }}.tar.gz
-  sha256: de9d3e8717560eb05e28739d1b35e4eac2e458553a52a301e51352a7ffc86a35
+  sha256: 2e29d20810dfc3043ee13ac7d9e25105799817683348823f305ab3f349b9386e
 
 build:
   script:
@@ -22,6 +22,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - maturin >=1,<2                         # [build_platform != target_platform]
     - {{ compiler("c") }}
+    - {{ stdlib("c") }}
     - {{ compiler("rust") }}
     - cargo-bundle-licenses
   host:
