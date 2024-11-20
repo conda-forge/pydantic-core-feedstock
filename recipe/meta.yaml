@@ -1,4 +1,4 @@
-{% set version = "2.26.0" %}
+{% set version = "2.27.0" %}
 
 package:
   name: pydantic-core
@@ -6,12 +6,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pydantic-core/pydantic_core-{{ version }}.tar.gz
-  sha256: 4578d4914bdbbd18963b4c611fa39d912d0dbeeffef8211fb546e45176a72d1d
+  sha256: f57783fbaf648205ac50ae7d646f27582fc706be3977e87c3c124e7a92407b10
 
 build:
   script:
     # PyPy has weird sysconfigdata name
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
+    - export CARGO_PROFILE_RELEASE_STRIP=symbols  # [unix]
+    - export RUSTFLAGS="$CARGO_BUILD_RUSTFLAGS"   # [unix]
+    - set CARGO_PROFILE_RELEASE_STRIP=symbols  # [win]
     - {{ PYTHON }} -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
   number: 0
