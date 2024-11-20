@@ -12,6 +12,8 @@ build:
   script:
     # PyPy has weird sysconfigdata name
     - rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py  # [build_platform != target_platform and target_platform == "linux-ppc64le"]
+    - export CARGO_PROFILE_RELEASE_STRIP=symbols  # [unix]
+    - set CARGO_PROFILE_RELEASE_STRIP=symbols  # [win]
     - {{ PYTHON }} -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
   number: 0
