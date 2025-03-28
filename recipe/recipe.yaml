@@ -19,7 +19,6 @@ build:
       then:
         - export CARGO_PROFILE_RELEASE_STRIP=symbols
         - export CARGO_PROFILE_RELEASE_LTO=fat
-        # - export RUSTFLAGS=\"$CARGO_BUILD_RUSTFLAGS\"
     - if: win
       then:
         - set CARGO_PROFILE_RELEASE_STRIP=symbols
