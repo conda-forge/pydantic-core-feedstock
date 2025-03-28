@@ -1,0 +1,74 @@
+schema_version: 1
+
+context:
+  version: 2.32.0
+
+package:
+  name: pydantic-core
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/07/77/e89851bdfcaf13fb1ec4e433a10712389a92421f1dd06bea3377770c1e30/pydantic_core-${{ version }}.tar.gz
+  sha256: db0bbb6014de6fad1283405d3ad2b14a1c3ac850ff493e8292b7705080331316
+
+build:
+  number: 1
+  script:
+    # PyPy has weird sysconfigdata name
+    - if: "build_platform != target_platform and target_platform == \"linux-ppc64le\""
+      then: rm -f $PREFIX/lib/pypy$PY_VER/_sysconfigdata.py
+    - if: unix
+      then: export CARGO_PROFILE_RELEASE_STRIP=symbols
+    - if: unix
+      then: "export RUSTFLAGS=\"$CARGO_BUILD_RUSTFLAGS\""
+    - if: win
+      then: set CARGO_PROFILE_RELEASE_STRIP=symbols
+    - ${{ PYTHON }} -m pip install . -vv
+    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: maturin >=1,<2
+    - ${{ compiler("c") }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler("rust") }}
+    - cargo-bundle-licenses
+  host:
+    - pip
+    - python
+    - maturin >=1,<2
+    - typing-extensions  >=4.6.0,!=4.7.0
+  run:
+    - python
+    - typing-extensions >=4.6.0,!=4.7.0
+
+tests:
+  - python:
+      imports:
+        - pydantic_core
+  - requirements:
+      run:
+        - pip
+    script:
+      - pip check
+      - "python -c \"from pydantic_core import PydanticUndefinedType\""
+
+about:
+  summary: Core validation logic for pydantic written in rust
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/pydantic/pydantic-core
+  repository: https://github.com/pydantic/pydantic-core
+
+extra:
+  recipe-maintainers:
+    - xhochy
+    - samuelcolvin
+    - adriangb
+    - dmontagu
+    - pavelzw
