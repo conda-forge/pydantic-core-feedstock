@@ -19,12 +19,12 @@ build:
       then:
         - export CARGO_PROFILE_RELEASE_STRIP=symbols
         - export CARGO_PROFILE_RELEASE_LTO=fat
-        - export RUSTFLAGS=\"$CARGO_BUILD_RUSTFLAGS\"
+        # - export RUSTFLAGS=\"$CARGO_BUILD_RUSTFLAGS\"
     - if: win
       then:
         - set CARGO_PROFILE_RELEASE_STRIP=symbols
         - set CARGO_PROFILE_RELEASE_LTO=fat
-    - ${{ PYTHON }} -m pip install . -vv
+    - python -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 
 requirements:
@@ -42,7 +42,7 @@ requirements:
     - pip
     - python
     - maturin >=1,<2
-    - typing-extensions  >=4.6.0,!=4.7.0
+    - typing-extensions >=4.6.0,!=4.7.0
   run:
     - python
     - typing-extensions >=4.6.0,!=4.7.0
@@ -56,7 +56,7 @@ tests:
         - pip
     script:
       - pip check
-      - "python -c \"from pydantic_core import PydanticUndefinedType\""
+      - python -c "from pydantic_core import PydanticUndefinedType"
 
 about:
   summary: Core validation logic for pydantic written in rust
