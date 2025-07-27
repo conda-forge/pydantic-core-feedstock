@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: pydantic-core
-  version: "2.37.1"
+  version: "2.37.2"
 
 package:
   name: ${{ name }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace("-", "_") }}-${{ version }}.tar.gz
-  sha256: 8520cbfabf8e7a303e3ffdd5ef70964a1520d46228f021934b3281ae98dbc46d
+  sha256: 78fb2a749123408fedaf540a22ca6bf0b5ec1f522a14fc00e27ede33d8ac088c
 
 build:
   number: 0
