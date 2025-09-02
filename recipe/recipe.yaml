@@ -13,7 +13,7 @@ source:
   sha256: b890a3990bd55ba5dab17fb6ae80eb25bb33e2f5b462da386562e7a168dd02de
 
 build:
-  number: 0
+  number: 1
   script:
     - if: unix
       then:
@@ -23,6 +23,9 @@ build:
       then:
         - set CARGO_PROFILE_RELEASE_STRIP=symbols
         - set CARGO_PROFILE_RELEASE_LTO=fat
+    - if: build_platform != target_platform and unix and python is startingwith('3.14')
+      then:
+        - rm -f $PREFIX/lib/python3.14/build-details.json
     - python -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 
