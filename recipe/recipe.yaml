@@ -11,6 +11,10 @@ package:
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace("-", "_") }}-${{ version }}.tar.gz
   sha256: 7cb8bc3605c29176e1b105350d2e6474142d7c1bd1d9327c4a9bdb46bf827acc
+  patches:
+    - if: match(python, "3.14.*")
+      then:
+        - pyo3-025.patch
 
 build:
   number: 1
