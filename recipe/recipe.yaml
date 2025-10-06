@@ -2,15 +2,15 @@ schema_version: 1
 
 context:
   name: pydantic-core
-  version: "2.40.0"
+  version: "2.41.0"
 
 package:
   name: ${{ name }}
   version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/a6/6c/af3b4275eb9905b0b17341df1296acea37de0bd2468da7f93af63a20a7d7/pydantic_core-${{ version }}.tar.gz
-  sha256: bf1027256f10b3bd02ff18ada44c4bdb242435bd135bf9f4ae5ddf7af10c79ff
+  url: https://files.pythonhosted.org/packages/da/ac/0649f353b7d3cb95dc76289fa4634b2859697fc260c775960be89712bcd3/pydantic_core-${{ version }}.tar.gz
+  sha256: a1b998121f26bc19af31915326ea45723169b394bde1527ecfcd62727c7ea639
 
 build:
   number: 0
