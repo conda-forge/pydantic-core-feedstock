@@ -5,7 +5,7 @@
 
 [workspace]
 name = "pydantic-core-feedstock"
-version = "3.53.0"  # conda-smithy version used to generate this file
+version = "3.54.2"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/pydantic-core-feedstock"
 authors = ["@conda-forge/pydantic-core"]
 channels = ["conda-forge"]
