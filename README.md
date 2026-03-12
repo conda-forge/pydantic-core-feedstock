@@ -3,13 +3,13 @@ About pydantic-core-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pydantic-core-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/pydantic/pydantic-core
+Home: https://github.com/pydantic/pydantic/tree/main/pydantic-core
 
 Package license: MIT
 
 Summary: Core validation logic for pydantic written in rust
 
-Development: https://github.com/pydantic/pydantic-core
+Development: https://github.com/pydantic/pydantic/tree/main/pydantic-core
 
 Current build status
 ====================
