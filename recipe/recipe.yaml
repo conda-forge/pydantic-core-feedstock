@@ -13,6 +13,7 @@ source:
   sha256: 34068adadf673c872f01265fa17ec00073e99d7f53f6d499bdfae652f330b3d2
 
 build:
+  skip: match(python, "3.14.* *_cp314t") and (aarch64 or ppc64le)
   number: 0
   script:
     - if: unix
