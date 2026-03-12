@@ -3,13 +3,13 @@ About pydantic-core-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pydantic-core-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/pydantic/pydantic-core
+Home: https://github.com/pydantic/pydantic/tree/main/pydantic-core
 
 Package license: MIT
 
 Summary: Core validation logic for pydantic written in rust
 
-Development: https://github.com/pydantic/pydantic-core
+Development: https://github.com/pydantic/pydantic/tree/main/pydantic-core
 
 Current build status
 ====================
@@ -106,13 +106,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_python3.14.____cp314t</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18916&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pydantic-core-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_python3.14.____cp314t" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_ppc64le_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18916&branchName=main">
@@ -145,13 +138,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18916&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pydantic-core-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.14.____cp314" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_python3.14.____cp314t</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18916&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pydantic-core-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_python3.14.____cp314t" alt="variant">
                 </a>
               </td>
             </tr><tr>
