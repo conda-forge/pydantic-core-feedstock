@@ -9,11 +9,16 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace("-", "_") }}-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pydantic-core/pydantic_core-${{ version }}.tar.gz
   sha256: 7cb8bc3605c29176e1b105350d2e6474142d7c1bd1d9327c4a9bdb46bf827acc
+  patches:
+    - pyo3-update.patch
 
 build:
-  number: 0
+  skip:
+    - win  # Skipping these since they are slow
+    - python == "3.14.* *_cp314t" and (target_platform == "linux-aarch64" or target_platform == "linux-ppc64le")
+  number: 1
   script:
     - if: unix
       then:
@@ -23,6 +28,9 @@ build:
       then:
         - set CARGO_PROFILE_RELEASE_STRIP=symbols
         - set CARGO_PROFILE_RELEASE_LTO=fat
+    - if: build_platform != target_platform and unix and python is startingwith('3.14')
+      then:
+        - rm -f $PREFIX/lib/python3.14/build-details.json
     - python -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 
@@ -63,8 +71,8 @@ about:
   license_file:
     - LICENSE
     - THIRDPARTY.yml
-  homepage: https://github.com/pydantic/pydantic-core
-  repository: https://github.com/pydantic/pydantic-core
+  homepage: https://github.com/pydantic/pydantic/tree/main/pydantic-core
+  repository: https://github.com/pydantic/pydantic/tree/main/pydantic-core
 
 extra:
   recipe-maintainers:
