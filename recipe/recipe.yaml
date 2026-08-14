@@ -14,7 +14,7 @@ source:
 
 build:
   skip: python == "3.14.* *_cp314t" and (target_platform == "linux-aarch64" or target_platform == "linux-ppc64le")
-  number: 0
+  number: 1
   script:
     - if: unix
       then:
