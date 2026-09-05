@@ -6,11 +6,11 @@ build_platform:
 conda_build_tool: rattler-build
 conda_forge_output_validation: true
 conda_install_tool: pixi
-provider:
-  win_arm64: default
-  osx_arm64: default
-  linux_aarch64: default
 github:
   branch_name: main
   tooling_branch_name: main
+provider:
+  linux_aarch64: default
+  osx_arm64: default
+  win_arm64: default
 test: native_and_emulated
