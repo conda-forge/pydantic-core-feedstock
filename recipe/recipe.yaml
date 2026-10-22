@@ -14,7 +14,7 @@ source:
 
 build:
   skip: python == "3.14.* *_cp314t" and (target_platform == "linux-aarch64" or target_platform == "linux-ppc64le")
-  number: 0
+  number: 1
   script:
     - if: unix
       then:
@@ -45,10 +45,10 @@ requirements:
     - pip
     - python
     - maturin >=1,<2
-    - typing-extensions >=4.6.0,!=4.7.0
+    - typing-extensions >=4.16.0
   run:
     - python
-    - typing-extensions >=4.6.0,!=4.7.0
+    - typing-extensions >=4.16.0
 
 tests:
   - python:
